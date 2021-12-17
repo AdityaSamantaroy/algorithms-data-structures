@@ -16,7 +16,7 @@ using namespace std;
 #define all(x) x.begin(), x.end()
 #define rall(x) x.rbegin(), x.rend()
 #define clr(x) memset(x, 0, sizeof(x))
-const ll MOD = 1e18;
+const ll MOD = 998244353;
 const int INF = 1000000009;
 
 /* ========== YOUR CODE HERE ========= */
@@ -100,7 +100,7 @@ struct Vertex {
 		}
 		extend();
 		pushAdd();
-		return left_child->get_sum(lq, rq) + right_child->get_sum(lq, rq);
+		return (left_child->get_sum(lq, rq) + right_child->get_sum(lq, rq))%MOD;
 	}
 };
 
