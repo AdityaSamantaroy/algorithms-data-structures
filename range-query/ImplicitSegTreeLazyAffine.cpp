@@ -35,7 +35,7 @@ struct Vertex {
 		pushAdd(left, right, addProp);
 	}
 	// push lazy changes to children
-	void pushAdd(ll lq, ll rq, ll &x) {
+	void pushAdd(ll lq, ll rq, ll& x) {
 		if (x) {
 			extend();
 			pushMul();
@@ -58,8 +58,8 @@ struct Vertex {
 		pushMul(left, right, mulProp);
 	}
 	// push lazy changes to children
-	void pushMul(ll lq, ll rq, ll &x) {
-		if (x > 1) {
+	void pushMul(ll lq, ll rq, ll& x) {
+		if (x != 1) {
 			extend();
 			if (left + 1 == right) {
 				sum *= x;
@@ -145,7 +145,7 @@ struct Vertex {
 		extend();
 		pushMul();
 		pushAdd();
-		return left_child->get_sum(lq, rq) + right_child->get_sum(lq, rq);
+		return (left_child->get_sum(lq, rq) + right_child->get_sum(lq, rq)) % MOD;
 	}
 };
 
