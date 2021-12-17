@@ -42,7 +42,7 @@ struct Vertex {
 			extend();
 			left_child->add(lq, rq, x);
 			right_child->add(lq, rq, x);
-			sum = left_child->sum + right_child->sum;
+			sum = left_child->sum + (left_child->right - left_child->left) * left_child->addProp + right_child->sum + (right_child->right - right_child->left) * right_child->addProp;
 			sum %= MOD;
 			x = 0;
 		}
